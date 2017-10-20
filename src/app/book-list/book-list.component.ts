@@ -1,5 +1,6 @@
-import { Book, Thumbnail } from '../shared/book';
 import { Component, OnInit } from '@angular/core';
+import { Book, Thumbnail } from '../shared/book';
+
 
 @Component({
   selector: 'bm-book-list',
