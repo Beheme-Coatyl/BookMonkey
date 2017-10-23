@@ -1,4 +1,6 @@
 import { Thumbnail } from './thumbnail';
+
+
 export { Thumbnail } from './thumbnail';
 
 export class Book {
@@ -12,4 +14,9 @@ export class Book {
     public thumbnails?: Thumbnail[],
     public description?: string
   ) { }
+
+  getTitle() {
+    console.log('Book.getTitle(): ' + this.title);
+    return this.title;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Book, Thumbnail } from '../shared/book';
 
 
@@ -10,6 +10,7 @@ import { Book, Thumbnail } from '../shared/book';
 
 export class BookListComponent implements OnInit {
   books: Book[];
+  @Output() showDetailsEvent = new EventEmitter<Book>();
 
   ngOnInit() {
     this.books = [
@@ -32,5 +33,12 @@ export class BookListComponent implements OnInit {
         [new Thumbnail('https://ng-buch.de/cover1.jpg', 'Buchcover')],
         'Dieses Buch führt Sie anhand eines zusammenhängenden , !Beispielprojekts...')
     ];
+  }
+
+  showDetails(book: Book) {
+
+    console.log('BookListComponent.showDetails(): ' + book.title);
+
+    this.showDetailsEvent.emit(book);
   }
 }
